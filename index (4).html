@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Julio & Natali — Invitación de Boda</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--t:#C97B6C;--td:#B8695A;--ts:#F5E6E0;--g:#8A9E6E;--gs:#7A9E7F;--gd:#5A7A5F;--ink:#4A4A4A;--soft:#6F6F6F;--page:#EDEAE4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#262422}}
+:root[data-theme="dark"]{--page:#262422}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--page);font-family:'Cormorant Garamond',Georgia,serif;color:var(--ink);font-size:20px;line-height:1.5}
+#loader{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:99;transition:opacity .6s}
+#loader svg{width:64px;animation:beat 1s infinite}#loader.off{opacity:0;pointer-events:none}
+@keyframes beat{0%,100%{transform:scale(1)}30%{transform:scale(1.22)}60%{transform:scale(1.05)}}
+@keyframes sway{0%,100%{transform:rotate(-1.4deg)}50%{transform:rotate(1.6deg)}}
+.card{position:relative;max-width:640px;margin:0 auto;overflow:hidden;text-align:center;padding:150px 36px 230px;box-shadow:0 10px 60px rgba(0,0,0,.18);
+background:radial-gradient(ellipse 60% 220px at 50% 0,rgba(150,176,150,.28),transparent 70%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .45 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E"),#FBFAF7}
+.lv{position:absolute;pointer-events:none;z-index:1}
+.lv svg{display:block;width:100%;height:auto;overflow:visible;animation:sway 7s ease-in-out infinite}
+.l1{top:0;left:0;width:330px}.l1 svg{transform-origin:0 0}
+.l2{top:0;right:0;width:330px}.l2 svg{transform-origin:100% 0;animation-delay:-3s}
+.l3{bottom:0;left:0;width:100%}.l3 svg{transform-origin:50% 100%;animation-duration:9s}
+section{position:relative;z-index:2;padding:22px 0}
+.mono{display:flex;align-items:center;justify-content:center;gap:6px;font-family:'Playfair Display',serif;font-weight:700;font-size:6.5rem;line-height:1;color:#1d1d1d}
+.mono svg{width:64px;height:110px}
+.small{font-size:1.15rem;color:var(--soft);max-width:430px;margin:0 auto}
+.names{display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Great Vibes',cursive;color:var(--g);font-size:5rem;line-height:1.1;margin:8px 0}
+.names svg{width:62px;flex:none}
+.h{font-family:'Playfair Display',serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6a6a6a;font-size:2rem;margin-top:6px}
+.orn{width:160px;margin:6px auto 0;display:block}
+.date{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;margin-top:20px}
+.side{font-family:'Playfair Display',serif;letter-spacing:.12em;font-size:1.5rem;color:#6a6a6a;border-top:1px solid var(--g);border-bottom:1px solid var(--g);padding:14px 0;text-transform:uppercase}
+.mid{position:relative;padding-top:34px}
+.mid svg{position:absolute;top:-6px;left:50%;width:150px;transform:translateX(-50%)}
+.mid b{font-family:'Playfair Display',serif;font-weight:400;font-size:6rem;line-height:1;color:var(--t)}
+.time{font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;margin-top:12px;color:#444}
+.addr{margin-top:22px;font-size:1.3rem}
+.band{position:relative;z-index:2;margin:34px -36px 0;background:rgba(120,120,120,.1);padding:8px;font-family:'Playfair Display',serif;font-weight:600;font-size:1.2rem;color:#2c2c2c}
+.icons{position:relative;z-index:2;display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:24px}
+.ic{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;width:104px;font-weight:700;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;line-height:1.2;color:#2c2c2c;text-align:center}
+.ic span{display:flex;align-items:center;justify-content:center;width:84px;height:84px;margin-bottom:10px;border-radius:50%;background:var(--gs);box-shadow:0 0 0 5px #fff,0 0 0 6.5px #E1CFA4,0 8px 18px rgba(90,122,95,.3);transition:transform .45s cubic-bezier(.68,-.55,.265,1.55),background .3s}
+.ic svg{width:38px;height:38px;fill:none;stroke:#2f3d30;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ic:hover span,.ic.on span{transform:translateY(-6px) scale(1.1);background:var(--t)}
+.ic:focus-visible span{outline:2px solid var(--t);outline-offset:6px}
+.panel{position:relative;z-index:2;max-width:430px;margin:28px auto 0;background:var(--ts);border-left:5px solid var(--t);border-radius:4px;padding:18px 24px;text-align:left;display:none}
+.panel.show{display:block}
+.panel h3{font-family:'Playfair Display',serif;font-weight:600;color:var(--td);font-size:1.15rem;margin-bottom:6px}
+.panel p{margin:4px 0}.panel b{font-family:'Playfair Display',serif;color:var(--td);font-weight:600}
+.mini{display:block;position:relative;margin:10px 0 4px;border-radius:8px;overflow:hidden;border:1px solid #E1CFA4;box-shadow:0 4px 14px rgba(0,0,0,.12);transition:transform .4s cubic-bezier(.68,-.55,.265,1.55)}.mini:hover{transform:scale(1.03)}.mini svg{display:block;width:100%;height:auto}.mini i{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);background:rgba(255,255,255,.92);color:#4A4A4A;font-style:normal;font-size:.8rem;font-weight:600;padding:2px 12px;border-radius:20px;white-space:nowrap}.pulse{transform-origin:150px 74px;animation:pl 2s ease-out infinite}@keyframes pl{0%{transform:scale(.4);opacity:.7}100%{transform:scale(2.2);opacity:0}}.btn{display:inline-block;margin-top:10px;padding:10px 26px;border-radius:40px;background:linear-gradient(135deg,#D4A59A,var(--td));color:#fff;text-decoration:none;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem;transition:transform .4s cubic-bezier(.68,-.55,.265,1.55),box-shadow .3s}
+.btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 20px rgba(184,105,90,.35)}
+.script{font-family:'Great Vibes',cursive;color:var(--t);font-size:3rem;line-height:1.2;margin-top:44px;position:relative;z-index:2}
+.hearts{position:relative;z-index:2}.hearts span{display:inline-block;margin:6px 3px;animation:beat 1.2s infinite}
+.hearts span:nth-child(2){animation-delay:.15s}.hearts span:nth-child(3){animation-delay:.3s}.hearts span:nth-child(4){animation-delay:.45s}.hearts span:nth-child(5){animation-delay:.6s}
+@media(max-width:640px){body{background:#FBFAF7}.card{box-shadow:none;padding:110px 22px 190px}.l1,.l2{width:210px}.band{margin:30px -22px 0}
+.mono{font-size:4.6rem}.mono svg{width:46px;height:80px}.names{font-size:3.2rem}.names svg{width:42px}.h{font-size:1.5rem}
+.mid b{font-size:4.4rem}.mid svg{width:120px}.side{font-size:1.05rem}.date{gap:10px}.ic{width:84px}.ic span{width:68px;height:68px}.icons{gap:14px}.script{font-size:2.4rem}}
+</style>
+</head>
+<body>
+<div id="loader"><svg viewBox="0 0 24 24"><path fill="#C97B6C" d="M12 21s-8-5.4-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.6-8 11-8 11z"/></svg></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A3C0A5"/><stop offset="1" stop-color="#6A8F70"/></linearGradient>
+<linearGradient id="gB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5E8562"/><stop offset="1" stop-color="#30503A"/></linearGradient>
+<linearGradient id="gC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D4E2D3"/><stop offset="1" stop-color="#A9C2AB"/></linearGradient>
+<radialGradient id="fl"><stop offset="0" stop-color="#B8695A"/><stop offset=".5" stop-color="#C97B6C"/><stop offset="1" stop-color="#E8D5D0" stop-opacity=".85"/></radialGradient>
+<g id="lf"><path d="M0 0C12-17 42-19 66 0 42 19 12 17 0 0z" stroke="rgba(40,70,45,.25)" stroke-width=".8"/><path d="M3 0H58" stroke="rgba(255,255,255,.5)" stroke-width="1" fill="none"/></g>
+<g id="br">
+<path d="M0 0C70-14 130 12 205-8" fill="none" stroke="#4F6F55" stroke-width="2.4"/>
+<use href="#lf" fill="url(#gB)" transform="translate(18 -3) rotate(-38) scale(1.15)"/>
+<use href="#lf" fill="url(#gA)" transform="translate(30 -5) rotate(34) scale(1.1)"/>
+<use href="#lf" fill="url(#gC)" transform="translate(58 -4) rotate(-30)"/>
+<use href="#lf" fill="url(#gB)" transform="translate(70 0) rotate(40)"/>
+<use href="#lf" fill="url(#gA)" transform="translate(100 2) rotate(-35) scale(.95)"/>
+<use href="#lf" fill="url(#gC)" transform="translate(112 3) rotate(36) scale(.9)"/>
+<use href="#lf" fill="url(#gB)" transform="translate(142 0) rotate(-30) scale(.8)"/>
+<use href="#lf" fill="url(#gA)" transform="translate(152 -2) rotate(30) scale(.75)"/>
+<use href="#lf" fill="url(#gA)" transform="translate(203 -8) rotate(-5) scale(.7)"/>
+</g>
+<g id="bl"><circle r="30" fill="url(#fl)" opacity=".45"/><circle r="21" fill="url(#fl)" opacity=".8"/><circle r="12" fill="#C97B6C"/><circle r="5" fill="#B8695A"/></g>
+<g id="cl">
+<use href="#br" transform="translate(-6 36) rotate(22) scale(1.35)"/>
+<use href="#br" transform="translate(-6 96) rotate(48) scale(1.25)"/>
+<use href="#br" transform="translate(0 0) rotate(72) scale(1.5)"/>
+<use href="#br" transform="translate(-6 150) rotate(30) scale(.9)" opacity=".8"/>
+<use href="#br" transform="translate(40 -4) rotate(100) scale(1.05)" opacity=".85"/>
+<use href="#bl" transform="translate(88 82) scale(.8)"/>
+<use href="#bl" transform="translate(40 150) scale(.45)"/>
+</g></defs></svg>
+
+<main class="card">
+<div class="lv l1"><svg viewBox="0 0 330 330"><use href="#cl"/></svg></div>
+<div class="lv l2"><svg viewBox="0 0 330 330"><use href="#cl" transform="translate(330 0) scale(-1 1)"/></svg></div>
+
+<section>
+  <div class="mono" data-r><span>J</span>
+    <svg viewBox="0 0 64 110" fill="none" stroke="#2a2a2a" stroke-width="1.2" stroke-linecap="round"><path d="M32 106V14"/><path d="M32 22c-9-3-13-10-12-17 8 2 12 9 12 17zM32 22c9-3 13-10 12-17-8 2-12 9-12 17zM32 44c-10-2-16-9-15-17 9 1 15 9 15 17zM32 44c10-2 16-9 15-17-9 1-15 9-15 17zM32 68c-10-2-16-9-15-17 9 1 15 9 15 17zM32 68c10-2 16-9 15-17-9 1-15 9-15 17zM32 92c-9-2-14-8-13-15 8 1 13 8 13 15zM32 92c9-2 14-8 13-15-8 1-13 8-13 15z" fill="#fff"/></svg>
+    <span>N</span></div>
+  <p class="small" style="margin-top:22px" data-r>Junto a nuestras familias</p>
+</section>
+
+<section>
+  <div class="names" data-r>Julio
+    <svg viewBox="0 0 64 56" fill="none" stroke="#555" stroke-width="1.6"><circle cx="22" cy="38" r="14"/><circle cx="40" cy="38" r="14"/><path d="M30 14c-3-5-10-3-9 2 1 4 9 9 9 9s8-5 9-9c1-5-6-7-9-2z" stroke-width="1.2"/></svg>
+    Natali</div>
+  <p class="small" data-r>Tenemos el honor de invitarlos a celebrar nuestra unión matrimonial y compartir este día tan especial</p>
+  <div class="h" data-r>Matrimonio</div>
+  <svg class="orn" viewBox="0 0 160 24" fill="none" stroke="#7a8a6a" stroke-width="1.3" data-r><path d="M12 14c20 8 40-10 68-2 28-8 48 10 68 2"/><path d="M8 14c4-8 10-8 12-6-2 4-6 6-12 6zM152 14c-4-8-10-8-12-6 2 4 6 6 12 6z" fill="#7a8a6a"/></svg>
+</section>
+
+<section>
+  <div class="date" data-r="pop">
+    <div class="side">Febrero</div>
+    <div class="mid"><svg viewBox="0 0 200 60"><path id="arc" d="M24 52Q100 -8 176 52" fill="none"/><text font-family="Cormorant Garamond,serif" font-size="15" letter-spacing="4" fill="#6f6f6f" text-anchor="middle"><textPath href="#arc" startOffset="50%">VIERNES</textPath></text></svg><b>13</b></div>
+    <div class="side">2027</div>
+  </div>
+  <p class="time" data-r>12:00 PM</p>
+  <p class="addr" data-r>Parcela 12 Santa Sara,<br>Porvenir, Florida - Chile</p>
+</section>
+
+<div class="band" data-r>Toca los íconos para interactuar</div>
+<div class="icons" id="icons">
+  <button class="ic" data-k="map"><span><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.800-7 12-7 12z"/><circle cx="12" cy="9" r="2.600"/></svg></span>Cómo llegar</button>
+  <button class="ic" data-k="prog"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.500 2"/></svg></span>Programa</button>
+  <button class="ic" data-k="dress"><span><svg viewBox="0 0 24 24"><path d="M12 8V6.500a2 2 0 1 1 2 2L3 16h18l-9-6"/></svg></span>Vestimenta</button>
+  <button class="ic" data-k="gift"><span><svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 13h18M12 9v12M12 9C9 9 7 7 8.500 5.500S12 6 12 9c0-3 1-4.500 3.500-3.500S15 9 12 9"/></svg></span>Lista de regalos</button>
+</div>
+<div class="panel" id="panel" aria-live="polite"></div>
+
+<p class="script" data-r>¡Los esperamos con mucho amor!</p>
+<div class="hearts"><span>💕</span><span>💕</span><span>💕</span><span>💕</span><span>💕</span></div>
+
+<div class="lv l3"><svg viewBox="0 0 640 230">
+<g opacity=".9"><use href="#br" transform="translate(-10 232) rotate(-62) scale(1.1)"/><use href="#br" transform="translate(40 236) rotate(-35) scale(1)" opacity=".8"/></g>
+<g><use href="#br" transform="translate(250 236) rotate(-95) scale(1.15)"/><use href="#br" transform="translate(320 238) rotate(-60) scale(1.2)"/><use href="#br" transform="translate(340 238) rotate(-120) scale(1.2)"/><use href="#br" transform="translate(300 238) rotate(-80) scale(.9)" opacity=".7"/></g>
+<g opacity=".9"><use href="#br" transform="translate(650 232) rotate(-118) scale(1.1)"/><use href="#br" transform="translate(600 236) rotate(-145) scale(1)" opacity=".8"/></g>
+<use href="#bl" transform="translate(318 186) scale(.75)"/><use href="#bl" transform="translate(70 206) scale(.45)"/><use href="#bl" transform="translate(575 208) scale(.5)"/>
+</svg></div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+setTimeout(function(){document.getElementById('loader').classList.add('off')},1500);
+var MAPS='https://www.google.com/maps/search/?api=1&query=Parcela+12+Santa+Sara+Porvenir+Florida+Chile';
+var C={
+map:'<h3>Cómo llegar</h3><p>Parcela 12 Santa Sara<br>Porvenir, Florida - Chile</p><a class="mini" target="_blank" rel="noopener" href="'+MAPS+'" aria-label="Abrir en Google Maps"><svg viewBox="0 0 300 170"><rect width="300" height="170" fill="#EEE9DD"/><path d="M0 20Q60 0 110 30T210 20 300 40V0H0z" fill="#D5E4CC"/><path d="M190 170Q210 120 260 110T300 90V170z" fill="#D5E4CC"/><path d="M0 120Q40 100 70 130T130 150 170 170H0z" fill="#DCE8D2"/><path d="M-10 100C60 80 120 120 190 90S270 40 310 60" fill="none" stroke="#BCD6E4" stroke-width="9" stroke-linecap="round"/><g fill="none" stroke="#fff" stroke-linecap="round"><path d="M-10 60L110 74 300 74" stroke-width="6"/><path d="M150 -10V74L120 180" stroke-width="5"/><path d="M40 180L90 74" stroke-width="3"/><path d="M210 74L250 180" stroke-width="3"/></g><g fill="none" stroke="#E3DACB" stroke-width=".8"><path d="M-10 60L110 74 300 74"/><path d="M150 -10V74L120 180"/></g><circle class="pulse" cx="150" cy="74" r="14" fill="#C97B6C"/><path d="M150 96C142 84 136 78 136 70a14 14 0 0 1 28 0c0 8-6 14-14 26z" fill="#C97B6C" stroke="#fff" stroke-width="2"/><circle cx="150" cy="70" r="5" fill="#fff"/></svg><i>Parcela 12 Santa Sara</i></a><a class="btn" target="_blank" rel="noopener" href="'+MAPS+'">Ver Ubicación en Mapa</a>',
+prog:'<h3>Programa</h3><p><b>12:00 PM</b> · Ceremonia Civil</p><p><b>12:40 PM</b> · Ceremonia Religiosa</p><p><b>1:30 PM</b> · Recepción</p>',
+dress:'<h3>Tipo de Vestimenta</h3><p><b>Casual</b></p><p>👙 Traer traje de baño y toalla</p>',
+gift:'<h3>Lista de Regalos</h3><p>Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con nosotros</p><a class="btn" target="_blank" rel="noopener" href="https://milistadenovios.cl/lista/43199">Ver Lista de Regalos</a>'};
+var P=document.getElementById('panel'),cur=null;
+document.querySelectorAll('.ic').forEach(function(b){b.addEventListener('click',function(){
+ var k=b.dataset.k;document.querySelectorAll('.ic').forEach(function(x){x.classList.remove('on')});
+ if(cur===k){P.classList.remove('show');cur=null;return}
+ cur=k;b.classList.add('on');P.innerHTML=C[k];P.classList.add('show');
+ if(window.gsap)gsap.fromTo(P,{opacity:0,y:16},{opacity:1,y:0,duration:.5,ease:'power2.out'});
+})});
+if(window.gsap&&window.ScrollTrigger){
+ gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.mono',{opacity:0,scale:.85,duration:1.2,delay:1.6,ease:'power2.out'});
+ gsap.utils.toArray('[data-r]').forEach(function(el,i){
+  if(i===0)return;
+  var v={scrollTrigger:{trigger:el,start:'top 90%'},opacity:0,duration:1,ease:'power2.out'};
+  if(el.dataset.r==='pop'){v.scale=.7;v.ease='back.out(1.7)'}else v.y=36;
+  gsap.from(el,v)});
+ gsap.from('.ic',{scrollTrigger:{trigger:'#icons',start:'top 90%'},scale:0,opacity:0,duration:.7,stagger:.15,ease:'back.out(1.8)'});
+ gsap.to('.l1,.l2',{y:-40,ease:'none',scrollTrigger:{trigger:'.card',start:'top top',end:'bottom bottom',scrub:true}});
+}
+</script>
+</body>
+</html>
