@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endolift + Endolaser | Dr. Rodrigo Olivares — Armonización Orofacial</title>
+    <meta name="description" content="Endolift Facial + Endolaser de Papada con el Dr. Rodrigo Olivares. Rejuvenece tu rostro, elimina la papada y redefine tu perfil sin cirugía. Universidad de Chile.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a3a5c; --navy-light: #2c5282; --sage: #7a9e9f; --sage-light: #a8c5c6;
+            --sage-bg: #f0f5f5; --accent: #c97b63; --accent-bg: #fdf6f4;
+            --gold: #c9a961; --gold-light: #e4d4a8; --text: #2d3748; --text-light: #718096; --whatsapp: #25D366;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; color: var(--navy); }
+        .label { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--sage); font-weight: 500; }
+        .divider { width: 40px; height: 1px; background: var(--sage); margin: 1.2rem 0; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(201,169,97,0.15); }
+        .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0.9rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+        .nav-logo svg { width: 34px; height: 34px; }
+        .nav-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: #fff; font-weight: 500; }
+        .nav-cta { padding: 0.5rem 1.3rem; background: var(--gold); color: #000 !important; text-decoration: none; font-size: 0.7rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 50px; transition: all 0.3s; cursor: pointer; border: none; font-family: 'Inter', sans-serif; }
+        .nav-cta:hover { background: var(--gold-light); }
+
+        /* HERO */
+        .hero { min-height: 92vh; display: flex; align-items: center; background: #000; padding: 7rem 1.5rem 4rem; position: relative; overflow: hidden; }
+        .hero::before { display: none; }
+        .hero-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; position: relative; z-index: 1; }
+        .hero .label { color: var(--gold); letter-spacing: 4px; font-size: 0.75rem; font-weight: 600; }
+        .hero h1 { color: #fff; font-size: 2.4rem; text-transform: uppercase; letter-spacing: 2px; line-height: 1.1; margin: 1rem 0 0; }
+        .hero h1 em { font-style: italic; color: var(--gold); text-transform: none; letter-spacing: 0; }
+        .hero .divider { background: var(--gold); margin: 1.5rem 0; }
+        .hero p { color: rgba(255,255,255,0.75); font-weight: 300; font-size: 0.95rem; margin: 1.2rem 0 2rem; max-width: 420px; line-height: 1.8; }
+        .hero p strong { color: var(--gold); font-weight: 500; }
+        .btn-primary { display: inline-block; padding: 1rem 2.2rem; background: var(--gold); color: #000; text-decoration: none; font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 50px; transition: all 0.35s ease; box-shadow: 0 8px 24px rgba(201,169,97,0.3); cursor: pointer; border: none; font-family: 'Inter', sans-serif; }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 14px 32px rgba(201,169,97,0.4); }
+        .hero-img { position: relative; }
+        .hero-img-frame { border-radius: 200px 200px 20px 20px; overflow: hidden; border: 1px solid rgba(201,169,97,0.4); box-shadow: 0 30px 60px rgba(0,0,0,0.6); aspect-ratio: 3/4; background: #111; }
+        .hero-img-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+        .hero-badge { position: absolute; bottom: 1.5rem; left: -0.5rem; background: #111; border-radius: 14px; padding: 0.9rem 1.2rem; box-shadow: 0 15px 35px rgba(0,0,0,0.5); border: 1px solid rgba(201,169,97,0.3); }
+        .hero-badge .num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); font-weight: 600; line-height: 1; }
+        .hero-badge .txt { font-size: 0.65rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* MAPA */
+        .hero-map { margin-top: 1.2rem; border-radius: 14px; overflow: hidden; border: 1px solid rgba(201,169,97,0.3); box-shadow: 0 8px 24px rgba(0,0,0,0.4); max-width: 320px; }
+        .hero-map iframe { width: 100%; height: 140px; border: 0; display: block; filter: grayscale(100%) invert(92%) contrast(83%); }
+        .hero-map-caption { font-size: 0.72rem; color: rgba(255,255,255,0.6); margin-top: 0.5rem; letter-spacing: 0.3px; }
+        .hero-map-caption strong { color: #fff; font-weight: 500; }
+        .hero-map-caption a { color: var(--gold); text-decoration: none; }
+        .hero-map-caption a:hover { color: var(--gold-light); }
+
+        /* REEL */
+        .reel-section { padding: 5rem 1.5rem; background: var(--navy); }
+        .reel-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+        .reel-section .label { color: var(--sage-light); }
+        .reel-section h2 { color: #fff; font-size: 2rem; margin: 0.5rem 0; }
+        .reel-section h2 em { font-style: italic; color: var(--sage-light); }
+        .reel-section .reel-text p { color: rgba(255,255,255,0.65); font-size: 0.9rem; font-weight: 300; line-height: 1.8; }
+        .reel-meta { margin-top: 1.2rem; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--sage-light); }
+        .reel-wrap { display: flex; justify-content: center; order: -1; }
+        .reel-frame { position: relative; width: 100%; max-width: 300px; aspect-ratio: 9 / 16; border-radius: 24px; overflow: hidden; border: 1px solid rgba(168,197,198,0.25); box-shadow: 0 30px 70px rgba(0,0,0,0.45); background: #000; }
+        .reel-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .reel-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.55)); cursor: pointer; transition: opacity 0.4s ease; z-index: 3; }
+        .reel-play-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.95); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0,0,0,0.35); transition: transform 0.3s; }
+        .reel-play:hover .reel-play-btn { transform: scale(1.1); }
+        .reel-play-btn svg { width: 22px; height: 22px; fill: var(--navy); margin-left: 3px; }
+        .reel-play.hidden { opacity: 0; pointer-events: none; }
+        .reel-corner { position: absolute; top: 0.9rem; left: 0.9rem; padding: 0.3rem 0.8rem; border-radius: 50px; background: rgba(0,0,0,0.45); backdrop-filter: blur(6px); font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: #fff; font-weight: 500; z-index: 2; }
+        .reel-controls { position: absolute; bottom: 1rem; right: 1rem; display: flex; gap: 0.5rem; z-index: 4; opacity: 0; transform: translateY(8px); transition: opacity 0.3s ease, transform 0.3s ease; pointer-events: none; }
+        .reel-controls.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        .reel-ctrl-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.25s ease; padding: 0; }
+        .reel-ctrl-btn:hover { background: rgba(0,0,0,0.7); transform: scale(1.08); }
+        .reel-ctrl-btn svg { width: 18px; height: 18px; fill: #fff; stroke: #fff; stroke-width: 0; }
+        .reel-ctrl-btn.muted svg.icon-mute { display: block; }
+        .reel-ctrl-btn.muted svg.icon-unmute { display: none; }
+        .reel-ctrl-btn:not(.muted) svg.icon-mute { display: none; }
+        .reel-ctrl-btn:not(.muted) svg.icon-unmute { display: block; }
+
+        /* RESULTADO */
+        .result { padding: 4.5rem 1.5rem; background: var(--sage-bg); }
+        .result-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+        .result h2 { font-size: 1.9rem; margin: 0.5rem 0 2.5rem; }
+        .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 640px; margin: 0 auto; }
+        .result-img { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 4/5; background: #e2e8e8; border: 1px solid rgba(122,158,159,0.2); }
+        .result-img img { width: 100%; height: 100%; object-fit: cover; }
+        .result-tag { position: absolute; top: 0.8rem; left: 0.8rem; padding: 0.3rem 0.9rem; border-radius: 50px; font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+        .result-tag.before { background: rgba(255,255,255,0.9); color: var(--navy); }
+        .result-tag.after { background: var(--navy); color: #fff; }
+        .result-caption { margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-light); font-weight: 300; font-style: italic; }
+
+        /* BENEFICIOS */
+        .benefits { padding: 4.5rem 1.5rem; background: #000; }
+        .benefits-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+        .benefits .label { color: var(--gold); letter-spacing: 4px; font-size: 0.75rem; font-weight: 600; }
+        .benefits h2 { color: #fff; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px; margin: 0.5rem 0 2.5rem; }
+        .benefits-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+        .benefit-item { padding: 0 1rem; }
+        .benefit-icon { width: 52px; height: 52px; margin: 0 auto 1rem; border-radius: 50%; background: rgba(201,169,97,0.15); border: 1px solid rgba(201,169,97,0.3); display: flex; align-items: center; justify-content: center; }
+        .benefit-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        .benefit-item h3 { color: #fff; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; }
+        .benefit-item p { font-size: 0.85rem; color: rgba(255,255,255,0.65); font-weight: 300; max-width: 260px; margin: 0 auto; }
+
+        /* CTA */
+        .cta { padding: 5rem 1.5rem; background: #000; text-align: center; border-top: 1px solid rgba(201,169,97,0.2); }
+        .cta .label { color: var(--gold); letter-spacing: 4px; font-size: 0.75rem; font-weight: 600; }
+        .cta h2 { color: #fff; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; margin: 0.8rem auto 1rem; max-width: 500px; line-height: 1.2; }
+        .cta h2 em { font-style: italic; color: var(--gold); text-transform: none; letter-spacing: 0; }
+        .cta p { color: rgba(255,255,255,0.6); font-size: 0.9rem; font-weight: 300; margin-bottom: 2rem; }
+        .btn-accent { display: inline-block; padding: 1.1rem 2.5rem; background: var(--gold); color: #000; text-decoration: none; font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 50px; transition: all 0.35s; box-shadow: 0 8px 24px rgba(201,169,97,0.3); cursor: pointer; border: none; font-family: 'Inter', sans-serif; }
+        .btn-accent:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 14px 32px rgba(201,169,97,0.4); }
+        .cta-info { margin-top: 2.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.55); font-weight: 300; letter-spacing: 0.5px; }
+        .cta-info a { color: var(--gold); text-decoration: none; }
+        .cta-info a:hover { color: var(--gold-light); }
+
+        /* FOOTER & FAB */
+        footer { background: #000; color: rgba(255,255,255,0.4); text-align: center; padding: 1.5rem; font-size: 0.7rem; letter-spacing: 0.5px; border-top: 1px solid rgba(201,169,97,0.1); }
+        .fab-wa { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 90; width: 54px; height: 54px; border-radius: 50%; background: var(--whatsapp); display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(0,0,0,0.2); transition: transform 0.3s; text-decoration: none; border: none; cursor: pointer; padding: 0; }
+        .fab-wa:hover { transform: scale(1.1); }
+        .fab-wa svg { width: 26px; height: 26px; fill: #fff; }
+        .fab-wa::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--whatsapp); animation: pulse 2s ease-out infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.5); opacity: 0; } }
+
+        /* REVEAL & MODAL */
+        .reveal { opacity: 0; transform: translateY(24px); transition: all 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 1rem; opacity: 0; transition: opacity 0.3s ease; }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal { background: #fff; border-radius: 20px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; position: relative; transform: translateY(20px); transition: transform 0.3s ease; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+        .modal-overlay.active .modal { transform: translateY(0); }
+        .modal-close { position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px; border-radius: 50%; background: var(--sage-bg); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.3s; z-index: 2; }
+        .modal-close:hover { background: var(--sage-light); }
+        .modal-close svg { width: 18px; height: 18px; stroke: var(--navy); stroke-width: 2; }
+        .modal-header { padding: 2rem 1.5rem 1rem; text-align: center; border-bottom: 1px solid rgba(201,169,97,0.2); }
+        .modal-header .label { margin-bottom: 0.5rem; display: block; color: var(--gold); }
+        .modal-header h3 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+        .modal-header p { font-size: 0.82rem; color: var(--text-light); font-weight: 300; }
+        .progress-bar { display: flex; gap: 0.4rem; padding: 1rem 1.5rem 0.5rem; }
+        .progress-step { flex: 1; height: 3px; background: var(--sage-bg); border-radius: 3px; transition: background 0.4s ease; }
+        .progress-step.active { background: var(--gold); }
+        .progress-step.done { background: var(--navy); }
+        .modal-body { padding: 1.5rem; }
+        .step { display: none; animation: fadeStep 0.4s ease; }
+        .step.active { display: block; }
+        @keyframes fadeStep { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+        .question { margin-bottom: 1.5rem; }
+        .question-label { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--navy); margin-bottom: 0.8rem; font-weight: 500; }
+        .question-number { display: inline-block; width: 22px; height: 22px; background: var(--gold); color: #000; border-radius: 50%; text-align: center; line-height: 22px; font-size: 0.7rem; font-family: 'Inter', sans-serif; font-weight: 600; margin-right: 0.5rem; vertical-align: middle; }
+        .options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .option { position: relative; }
+        .option input { position: absolute; opacity: 0; pointer-events: none; }
+        .option label { display: block; padding: 0.85rem 1rem; background: var(--sage-bg); border: 1.5px solid transparent; border-radius: 10px; font-size: 0.85rem; color: var(--text); cursor: pointer; transition: all 0.25s ease; font-weight: 400; }
+        .option label:hover { background: #e6eeef; }
+        .option input:checked + label { background: #fff; border-color: var(--gold); color: var(--navy); font-weight: 500; box-shadow: 0 4px 12px rgba(201,169,97,0.15); }
+        .text-input { width: 100%; padding: 0.9rem 1rem; border: 1.5px solid rgba(122,158,159,0.3); border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--text); background: var(--sage-bg); transition: border-color 0.3s, background 0.3s; outline: none; }
+        .text-input:focus { border-color: var(--gold); background: #fff; }
+        .text-input::placeholder { color: var(--text-light); }
+        .consent-box { display: flex; align-items: flex-start; gap: 0.7rem; padding: 1rem; background: var(--accent-bg); border-radius: 10px; border: 1px solid rgba(201,123,99,0.2); margin-top: 1rem; }
+        .consent-box input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); margin-top: 2px; flex-shrink: 0; cursor: pointer; }
+        .consent-box label { font-size: 0.78rem; color: var(--text); line-height: 1.5; cursor: pointer; }
+        .consent-box label strong { color: var(--navy); }
+        .modal-footer { padding: 1rem 1.5rem 1.5rem; display: flex; gap: 0.7rem; }
+        .btn-back { flex: 0 0 auto; padding: 0.9rem 1.3rem; background: transparent; border: 1.5px solid rgba(122,158,159,0.3); border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); cursor: pointer; transition: all 0.3s; }
+        .btn-back:hover { border-color: var(--gold); color: var(--navy); }
+        .btn-next { flex: 1; padding: 0.9rem 1.5rem; background: var(--navy); color: #fff; border: none; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+        .btn-next:hover { background: var(--navy-light); }
+        .btn-whatsapp { flex: 1; padding: 0.9rem 1.5rem; background: var(--whatsapp); color: #fff; border: none; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .btn-whatsapp:hover { background: #1ebe57; }
+        .btn-whatsapp svg { width: 16px; height: 16px; fill: #fff; }
+        .error-msg { font-size: 0.75rem; color: var(--accent); margin-top: 0.4rem; display: none; }
+        .error-msg.show { display: block; }
+
+        @media (min-width: 768px) {
+            .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 4rem; }
+            .hero h1 { font-size: 3.2rem; }
+            .benefits-grid { grid-template-columns: repeat(4, 1fr); }
+            .result-grid { grid-template-columns: 1fr 1fr; }
+            .reel-inner { grid-template-columns: 0.95fr 1.05fr; gap: 4rem; }
+            .reel-wrap { order: 0; }
+            .reel-frame { max-width: 340px; }
+            .reel-section h2 { font-size: 2.4rem; }
+            .benefits h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="55" stroke="#c9a961" stroke-width="1.5"/><text x="28" y="72" font-family="Cormorant Garamond, serif" font-size="42" fill="#fff" font-weight="500">R</text><text x="62" y="72" font-family="Cormorant Garamond, serif" font-size="42" fill="#c9a961">O</text></svg>
+                <span>Dr. Rodrigo Olivares</span>
+            </a>
+            <button class="nav-cta open-modal">Agendar</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="reveal">
+                <span class="label">Tecnología de última generación</span>
+                <h1>Endolift Facial<br>+ Endolaser de <em>Papada</em></h1>
+                <div class="divider"></div>
+                <p>Rejuvenece tu rostro, elimina la papada y redefine tu perfil <strong>sin cirugía</strong>. Tratamiento mínimamente invasivo con resultados visibles desde el primer día.</p>
+                <button class="btn-primary open-modal">Agendar evaluación gratuita</button>
+                <div class="hero-map">
+                    <iframe src="https://www.google.com/maps?q=Av.+Providencia+1208,+Santiago,+Chile&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación"></iframe>
+                </div>
+                <p class="hero-map-caption"><strong>Av. Providencia 1208, Santiago</strong> · <a href="https://maps.google.com/?q=Av.+Providencia+1208,+Santiago,+Chile" target="_blank" rel="noopener">Ver en Google Maps →</a></p>
+            </div>
+            <div class="hero-img reveal">
+                <div class="hero-img-frame"><img src="dr-olivares.jpg" alt="Dr. Rodrigo Olivares"></div>
+                <div class="hero-badge"><div class="num">+3.000</div><div class="txt">Pacientes atendidos</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reel-section">
+        <div class="reel-inner">
+            <div class="reel-text reveal">
+                <span class="label">Mira el resultado</span>
+                <h2>20 segundos que <em>hablan por sí solos.</em></h2>
+                <div class="divider" style="background: var(--sage-light); margin-left: 0;"></div>
+                <p>Así se ve una transformación real con Endolift + Endolaser. Sin filtros, sin maquillaje, sin edición.</p>
+                <p class="reel-meta">Reel · 0:22 · Dr. Rodrigo Olivares</p>
+            </div>
+            <div class="reel-wrap reveal">
+                <div class="reel-frame" id="reelFrame">
+                    <span class="reel-corner">▶ Reel</span>
+                    <video id="reelVideo" poster="reel-poster.jpg" playsinline preload="none" disablepictureinpicture controlslist="nodownload">
+                        <source src="reel-minilipopapada.mp4" type="video/mp4">
+                    </video>
+                    <div class="reel-play" id="reelPlay" role="button" aria-label="Reproducir reel">
+                        <div class="reel-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    </div>
+                    <div class="reel-controls" id="reelControls">
+                        <button type="button" class="reel-ctrl-btn" id="reelPauseBtn" aria-label="Pausar"><svg viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+                        <button type="button" class="reel-ctrl-btn" id="reelMuteBtn" aria-label="Silenciar">
+                            <svg class="icon-mute" viewBox="0 0 24 24"><path d="M16.5 12A4.5 4.5 0 0014 8.03v2.21l2.45 2.45c.03-.22.05-.45.05-.69zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.8 8.8 0 0021 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 003.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+                            <svg class="icon-unmute" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 8.03v7.94c1.48-.73 2.5-2.25 2.5-3.97zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="result">
+        <div class="result-inner">
+            <span class="label">Resultado real</span>
+            <h2>Una sesión. Una diferencia.</h2>
+            <div class="result-grid">
+                <div class="result-img reveal"><img src="antes.jpg" alt="Antes"><span class="result-tag before">Antes</span></div>
+                <div class="result-img reveal"><img src="despues.jpg" alt="Después"><span class="result-tag after">Después</span></div>
+            </div>
+            <p class="result-caption">Paciente femenina, 38 años · Resultado a 30 días post-tratamiento. Cada caso es evaluado de forma personalizada.</p>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="benefits-inner">
+            <span class="label">Beneficios del tratamiento</span>
+            <h2>4 efectos en una sola sesión</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Reafirma y tensa</h3><p>Estimula la producción de colágeno desde el primer día, tensando la piel del rostro y cuello.</p></div>
+                <div class="benefit-item reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"/></svg></div><h3>Reduce la papada</h3><p>Elimina la grasa localizada bajo el mentón de forma precisa, sin liposucción ni bisturí.</p></div>
+                <div class="benefit-item reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>Estimula colágeno</h3><p>El efecto lifting continúa mejorando durante las semanas siguientes al procedimiento.</p></div>
+                <div class="benefit-item reveal"><div class="benefit-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Recuperación rápida</h3><p>Sin cicatrices, sin reposo prolongado. Retoma tu rutina al día siguiente.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <span class="label">Evaluación sin costo</span>
+        <h2>Tu perfil, <em>redefinido.</em></h2>
+        <p>Completa la preevaluación online y agenda tu cita con el Dr. Olivares.</p>
+        <button class="btn-accent open-modal">Iniciar preevaluación</button>
+        <p class="cta-info">Av. Providencia 1208, Santiago · <a href="tel:+56956620576">+56 9 5662 0576</a> · <a href="https://instagram.com/rolivaresdoctor">@rolivaresdoctor</a></p>
+    </section>
+
+    <footer>© 2026 Dr. Rodrigo Olivares · Odontólogo · Especialista en Armonización Orofacial · Universidad de Chile</footer>
+
+    <button class="fab-wa open-modal" aria-label="Agendar evaluación">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </button>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" role="dialog" aria-modal="true">
+            <button class="modal-close" id="modalClose" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
+            <div class="modal-header">
+                <span class="label">Preevaluación Online</span>
+                <h3>Endolift + Endolaser</h3>
+                <p>Completa estos datos para acceder a la preevaluación con el Dr. Olivares</p>
+            </div>
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-step active" data-step="1"></div><div class="progress-step" data-step="2"></div><div class="progress-step" data-step="3"></div><div class="progress-step" data-step="4"></div>
+            </div>
+            <form id="evalForm" class="modal-body">
+                <div class="step active" data-step="1">
+                    <div class="question"><label class="question-label"><span class="question-number">1</span>¿Qué es lo que más te gustaría mejorar?</label><div class="options"><div class="option"><input type="radio" name="objetivo" id="obj1" value="Eliminar grasa de la papada" required><label for="obj1">Eliminar grasa de la papada</label></div><div class="option"><input type="radio" name="objetivo" id="obj2" value="Definir el contorno mandibular"><label for="obj2">Definir el contorno mandibular</label></div><div class="option"><input type="radio" name="objetivo" id="obj3" value="Reducir flacidez del cuello"><label for="obj3">Reducir flacidez del cuello</label></div><div class="option"><input type="radio" name="objetivo" id="obj4" value="Mejorar mi perfil facial"><label for="obj4">Mejorar mi perfil facial</label></div></div></div>
+                    <div class="question"><label class="question-label"><span class="question-number">2</span>¿Cómo describirías tu papada?</label><div class="options"><div class="option"><input type="radio" name="papada" id="pap1" value="Leve" required><label for="pap1">Leve</label></div><div class="option"><input type="radio" name="papada" id="pap2" value="Moderada"><label for="pap2">Moderada</label></div><div class="option"><input type="radio" name="papada" id="pap3" value="Pronunciada"><label for="pap3">Pronunciada</label></div><div class="option"><input type="radio" name="papada" id="pap4" value="No estoy seguro/a"><label for="pap4">No estoy seguro/a</label></div></div></div>
+                    <div class="question"><label class="question-label"><span class="question-number">3</span>¿Cuál es tu edad?</label><div class="options"><div class="option"><input type="radio" name="edad" id="ed1" value="Menos de 18 años" required><label for="ed1">Menos de 18 años</label></div><div class="option"><input type="radio" name="edad" id="ed2" value="18 a 29 años"><label for="ed2">18 a 29 años</label></div><div class="option"><input type="radio" name="edad" id="ed3" value="30 a 45 años"><label for="ed3">30 a 45 años</label></div><div class="option"><input type="radio" name="edad" id="ed4" value="46 a 60 años"><label for="ed4">46 a 60 años</label></div><div class="option"><input type="radio" name="edad" id="ed5" value="Más de 60 años"><label for="ed5">Más de 60 años</label></div></div></div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="question"><label class="question-label"><span class="question-number">4</span>¿Te has realizado anteriormente algún procedimiento en la papada?</label><div class="options"><div class="option"><input type="radio" name="previo" id="prev1" value="No, ninguno" required><label for="prev1">No, ninguno</label></div><div class="option"><input type="radio" name="previo" id="prev2" value="Sí, tratamientos estéticos"><label for="prev2">Sí, tratamientos estéticos</label></div><div class="option"><input type="radio" name="previo" id="prev3" value="Sí, cirugía o liposucción"><label for="prev3">Sí, cirugía o liposucción</label></div></div></div>
+                    <div class="question"><label class="question-label"><span class="question-number">5</span>¿Tienes alguna enfermedad o condición médica relevante?</label><div class="options"><div class="option"><input type="radio" name="enfermedad" id="enf1" value="No" required><label for="enf1">No</label></div><div class="option"><input type="radio" name="enfermedad" id="enf2" value="Sí"><label for="enf2">Sí</label></div><div class="option"><input type="radio" name="enfermedad" id="enf3" value="No estoy seguro/a"><label for="enf3">No estoy seguro/a</label></div></div></div>
+                    <div class="question"><label class="question-label"><span class="question-number">6</span>¿Tomas medicamentos habitualmente?</label><div class="options"><div class="option"><input type="radio" name="medicamentos" id="med1" value="No" required><label for="med1">No</label></div><div class="option"><input type="radio" name="medicamentos" id="med2" value="Sí, anticoagulantes o que afectan la coagulación"><label for="med2">Sí, anticoagulantes o que afectan la coagulación</label></div><div class="option"><input type="radio" name="medicamentos" id="med3" value="Sí, otros medicamentos"><label for="med3">Sí, otros medicamentos</label></div></div></div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="question"><label class="question-label"><span class="question-number">7</span>¿Estás embarazada o en período de lactancia?</label><div class="options"><div class="option"><input type="radio" name="embarazo" id="emb1" value="No" required><label for="emb1">No</label></div><div class="option"><input type="radio" name="embarazo" id="emb2" value="Sí"><label for="emb2">Sí</label></div><div class="option"><input type="radio" name="embarazo" id="emb3" value="No corresponde"><label for="emb3">No corresponde</label></div></div></div>
+                    <div class="question"><label class="question-label"><span class="question-number">8</span>¿Cuándo te gustaría realizarte el procedimiento?</label><div class="options"><div class="option"><input type="radio" name="timing" id="tim1" value="Lo antes posible" required><label for="tim1">Lo antes posible</label></div><div class="option"><input type="radio" name="timing" id="tim2" value="Durante el próximo mes"><label for="tim2">Durante el próximo mes</label></div><div class="option"><input type="radio" name="timing" id="tim3" value="En los próximos 3 meses"><label for="tim3">En los próximos 3 meses</label></div><div class="option"><input type="radio" name="timing" id="tim4" value="Solo estoy cotizando"><label for="tim4">Solo estoy cotizando</label></div></div></div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="question"><label class="question-label" for="nombre">Nombre completo</label><input type="text" id="nombre" name="nombre" class="text-input" placeholder="Tu nombre y apellido" required><div class="error-msg" id="errNombre">Por favor ingresa tu nombre completo</div></div>
+                    <div class="consent-box"><input type="checkbox" id="consent" name="consent" required><label for="consent"><strong>Consentimiento informado:</strong> Autorizo el tratamiento de mis datos personales y sensibles de salud conforme a la <strong>Ley 19.628</strong> sobre Protección de la Vida Privada, para acceder a la Preevaluación Online con el Dr. Rodrigo Olivares.</label></div>
+                    <div class="error-msg" id="errConsent" style="margin-top:0.5rem;">Debes aceptar el consentimiento para continuar</div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn-back" id="btnBack" style="display:none;">Atrás</button>
+                <button type="button" class="btn-next" id="btnNext">Siguiente</button>
+                <button type="button" class="btn-whatsapp" id="btnSend" style="display:none;"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Enviar por WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const btnBack = document.getElementById('btnBack');
+        const btnNext = document.getElementById('btnNext');
+        const btnSend = document.getElementById('btnSend');
+        const progressSteps = document.querySelectorAll('.progress-step');
+        const steps = document.querySelectorAll('.step');
+        const totalSteps = steps.length;
+        let currentStep = 1;
+
+        document.querySelectorAll('.open-modal').forEach(btn => {
+            btn.addEventListener('click', (e) => { e.preventDefault(); modalOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; });
+        });
+
+        function closeModal() { modalOverlay.classList.remove('active'); document.body.style.overflow = ''; }
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+
+        function updateStep() {
+            steps.forEach(s => s.classList.remove('active'));
+            document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
+            progressSteps.forEach((ps, i) => {
+                const stepNum = i + 1; ps.classList.remove('active', 'done');
+                if (stepNum < currentStep) ps.classList.add('done'); else if (stepNum === currentStep) ps.classList.add('active');
+            });
+            btnBack.style.display = currentStep === 1 ? 'none' : 'block';
+            btnNext.style.display = currentStep === totalSteps ? 'none' : 'block';
+            btnSend.style.display = currentStep === totalSteps ? 'flex' : 'none';
+            document.querySelector('.modal').scrollTop = 0;
+        }
+
+        function validateStep(step) {
+            const stepEl = document.querySelector(`.step[data-step="${step}"]`);
+            const radios = stepEl.querySelectorAll('input[type="radio"][required]');
+            for (const radio of radios) { if (!stepEl.querySelector(`input[name="${radio.name}"]:checked`)) return false; }
+            if (step === 4) {
+                const nombre = document.getElementById('nombre').value.trim();
+                const consent = document.getElementById('consent').checked;
+                let valid = true;
+                if (nombre.length < 3) { document.getElementById('errNombre').classList.add('show'); valid = false; } else { document.getElementById('errNombre').classList.remove('show'); }
+                if (!consent) { document.getElementById('errConsent').classList.add('show'); valid = false; } else { document.getElementById('errConsent').classList.remove('show'); }
+                return valid;
+            }
+            return true;
+        }
+
+        btnNext.addEventListener('click', () => { if (validateStep(currentStep) && currentStep < totalSteps) { currentStep++; updateStep(); } });
+        btnBack.addEventListener('click', () => { if (currentStep > 1) { currentStep--; updateStep(); } });
+
+        btnSend.addEventListener('click', async () => {
+            if (!validateStep(4)) return;
+            const getVal = (name) => { const el = document.querySelector(`input[name="${name}"]:checked`); return el ? el.value : '-'; };
+            const nombre = document.getElementById('nombre').value.trim();
+            
+            const sheetData = {
+                nombre: nombre, objetivo: getVal('objetivo'), papada: getVal('papada'), edad: getVal('edad'),
+                previo: getVal('previo'), enfermedad: getVal('enfermedad'), medicamentos: getVal('medicamentos'),
+                embarazo: getVal('embarazo'), timing: getVal('timing'), whatsapp: 'Enviado desde WhatsApp'
+            };
+            
+            // ✅ TU URL DE GOOGLE APPS SCRIPT YA ESTÁ AQUÍ
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzg7uAkgE5Tcg7vJcmX-uMJO4tV7h6ITiRY7ap8bkrBF9glH0o9VwceP19bwl-ttQ1p/exec';
+            
+            try {
+                await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(sheetData) });
+            } catch (error) { console.error('Error al enviar a Sheets:', error); }
+            
+            const mensaje = `Hola Dr. Olivares, completé la preevaluación online para Endolift + Endolaser:%0A%0A` +
+                `📋 *PREEVALUACIÓN:*%0A` +
+                `• Objetivo: ${encodeURIComponent(getVal('objetivo'))}%0A• Papada: ${encodeURIComponent(getVal('papada'))}%0A• Edad: ${encodeURIComponent(getVal('edad'))}%0A• Procedimientos previos: ${encodeURIComponent(getVal('previo'))}%0A• Condición médica: ${encodeURIComponent(getVal('enfermedad'))}%0A• Medicamentos: ${encodeURIComponent(getVal('medicamentos'))}%0A• Embarazo/lactancia: ${encodeURIComponent(getVal('embarazo'))}%0A• Timing: ${encodeURIComponent(getVal('timing'))}%0A%0A` +
+                `👤 *DATOS DE CONTACTO:*%0A• Nombre: ${encodeURIComponent(nombre)}%0A%0A` +
+                `✅ Consiento tratamiento de datos (Ley 19.628)`;
+            
+            window.open(`https://wa.me/56956620576?text=${mensaje}`, '_blank');
+            closeModal();
+        });
+
+        document.getElementById('nombre').addEventListener('input', () => document.getElementById('errNombre').classList.remove('show'));
+        document.getElementById('consent').addEventListener('change', () => document.getElementById('errConsent').classList.remove('show'));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalOverlay.classList.contains('active')) closeModal(); });
+
+        const reelPlay = document.getElementById('reelPlay');
+        const reelVideo = document.getElementById('reelVideo');
+        const reelControls = document.getElementById('reelControls');
+        const reelPauseBtn = document.getElementById('reelPauseBtn');
+        const reelMuteBtn = document.getElementById('reelMuteBtn');
+
+        if (reelPlay && reelVideo) {
+            reelPlay.addEventListener('click', () => {
+                reelVideo.preload = 'auto';
+                const p = reelVideo.play();
+                if (p !== undefined) p.then(() => { reelPlay.classList.add('hidden'); reelControls.classList.add('visible'); }).catch(() => reelPlay.classList.add('hidden'));
+                else { reelPlay.classList.add('hidden'); reelControls.classList.add('visible'); }
+            });
+            reelPauseBtn.addEventListener('click', () => {
+                if (reelVideo.paused) { reelVideo.play(); reelPauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>'; } 
+                else { reelVideo.pause(); reelPauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>'; reelPlay.classList.remove('hidden'); reelControls.classList.remove('visible'); }
+            });
+            reelMuteBtn.addEventListener('click', () => { reelVideo.muted = !reelVideo.muted; reelMuteBtn.classList.toggle('muted', reelVideo.muted); });
+            reelVideo.addEventListener('ended', () => { reelPlay.classList.remove('hidden'); reelControls.classList.remove('visible'); reelPauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>'; });
+        }
+    </script>
+</body>
+</html>
