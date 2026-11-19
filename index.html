@@ -28,7 +28,7 @@ section{position:relative;z-index:2;padding:22px 0}
 .mono{display:flex;align-items:center;justify-content:center;gap:6px;font-family:'Playfair Display',serif;font-weight:700;font-size:6.5rem;line-height:1;color:#1d1d1d}
 .mono svg{width:64px;height:110px}
 .small{font-size:1.15rem;color:var(--soft);max-width:430px;margin:0 auto}
-.names{display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Great Vibes',cursive;color:var(--g);font-size:5rem;line-height:1.1;margin:8px 0}
+.photo{position:relative;width:230px;height:290px;margin:26px auto 8px}.photo .fr{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,#F5E6E0,#E4EDE2);box-shadow:0 0 0 6px #fff,0 0 0 8px #E1CFA4,0 14px 30px rgba(90,122,95,.25)}.photo .fr>svg{position:absolute;inset:0;width:100%;height:100%}.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.photo .pfl{position:absolute;width:74px;height:74px;overflow:visible;animation:sway 6s ease-in-out infinite}.pfl.a{top:-14px;left:-26px}.pfl.b{bottom:6px;right:-30px;width:88px;height:88px;animation-delay:-2s}.pfl.c{top:30px;right:-24px;width:48px;height:48px;animation-delay:-4s}.pfl.d{bottom:-6px;left:-18px;width:56px;height:56px;animation-delay:-1s}.names{display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Great Vibes',cursive;color:var(--g);font-size:5rem;line-height:1.1;margin:8px 0}
 .names svg{width:62px;flex:none}
 .h{font-family:'Playfair Display',serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6a6a6a;font-size:2rem;margin-top:6px}
 .orn{width:160px;margin:6px auto 0;display:block}
@@ -55,7 +55,7 @@ section{position:relative;z-index:2;padding:22px 0}
 .script{font-family:'Great Vibes',cursive;color:var(--t);font-size:3rem;line-height:1.2;margin-top:44px;position:relative;z-index:2}
 .hearts{position:relative;z-index:2}.hearts span{display:inline-block;margin:6px 3px;animation:beat 1.2s infinite}
 .hearts span:nth-child(2){animation-delay:.15s}.hearts span:nth-child(3){animation-delay:.3s}.hearts span:nth-child(4){animation-delay:.45s}.hearts span:nth-child(5){animation-delay:.6s}
-@media(max-width:640px){body{background:#FBFAF7}.card{box-shadow:none;padding:110px 22px 190px}.l1,.l2{width:210px}.band{margin:30px -22px 0}
+@media(max-width:640px){.photo{width:190px;height:240px}body{background:#FBFAF7}.card{box-shadow:none;padding:110px 22px 190px}.l1,.l2{width:210px}.band{margin:30px -22px 0}
 .mono{font-size:4.6rem}.mono svg{width:46px;height:80px}.names{font-size:3.2rem}.names svg{width:42px}.h{font-size:1.5rem}
 .mid b{font-size:4.4rem}.mid svg{width:120px}.side{font-size:1.05rem}.date{gap:10px}.ic{width:84px}.ic span{width:68px;height:68px}.icons{gap:14px}.script{font-size:2.4rem}}
 </style>
@@ -82,6 +82,7 @@ section{position:relative;z-index:2;padding:22px 0}
 <use href="#lf" fill="url(#gA)" transform="translate(203 -8) rotate(-5) scale(.7)"/>
 </g>
 <g id="bl"><circle r="30" fill="url(#fl)" opacity=".45"/><circle r="21" fill="url(#fl)" opacity=".8"/><circle r="12" fill="#C97B6C"/><circle r="5" fill="#B8695A"/></g>
+<g id="pf"><g fill="url(#fl)"><ellipse cy="-17" rx="9" ry="17" opacity=".85"/><ellipse cy="-17" rx="9" ry="17" opacity=".85" transform="rotate(60)"/><ellipse cy="-17" rx="9" ry="17" opacity=".85" transform="rotate(120)"/><ellipse cy="-17" rx="9" ry="17" opacity=".85" transform="rotate(180)"/><ellipse cy="-17" rx="9" ry="17" opacity=".85" transform="rotate(240)"/><ellipse cy="-17" rx="9" ry="17" opacity=".85" transform="rotate(300)"/></g><circle r="10" fill="#B8695A" opacity=".8"/><circle r="5" fill="#F5E6E0"/><circle r="2" fill="#E8C9A8"/></g>
 <g id="cl">
 <use href="#br" transform="translate(-6 36) rotate(22) scale(1.35)"/>
 <use href="#br" transform="translate(-6 96) rotate(48) scale(1.25)"/>
@@ -89,7 +90,7 @@ section{position:relative;z-index:2;padding:22px 0}
 <use href="#br" transform="translate(-6 150) rotate(30) scale(.9)" opacity=".8"/>
 <use href="#br" transform="translate(40 -4) rotate(100) scale(1.05)" opacity=".85"/>
 <use href="#bl" transform="translate(88 82) scale(.8)"/>
-<use href="#bl" transform="translate(40 150) scale(.45)"/>
+<use href="#bl" transform="translate(40 150) scale(.45)"/><use href="#pf" transform="translate(112 52) scale(1.15) rotate(15)"/><use href="#pf" transform="translate(48 108) scale(.95) rotate(40)"/><use href="#pf" transform="translate(158 136) scale(.7) rotate(-10)"/><use href="#pf" transform="translate(205 72) scale(.6) rotate(25)"/><use href="#pf" transform="translate(22 44) scale(.6) rotate(5)"/><use href="#pf" transform="translate(80 18) scale(.55) rotate(30)"/><use href="#pf" transform="translate(190 40) scale(.5) rotate(-20)"/><use href="#pf" transform="translate(236 104) scale(.45) rotate(50)"/><use href="#pf" transform="translate(100 170) scale(.5) rotate(15)"/><use href="#pf" transform="translate(14 182) scale(.45)"/><use href="#pf" transform="translate(140 88) scale(.4) rotate(70)"/><g fill="#D4A59A"><circle cx="150" cy="20" r="4"/><circle cx="84" cy="128" r="3.5"/><circle cx="176" cy="102" r="3"/><circle cx="20" cy="150" r="3"/></g>
 </g></defs></svg>
 
 <main class="card">
@@ -101,6 +102,11 @@ section{position:relative;z-index:2;padding:22px 0}
     <svg viewBox="0 0 64 110" fill="none" stroke="#2a2a2a" stroke-width="1.2" stroke-linecap="round"><path d="M32 106V14"/><path d="M32 22c-9-3-13-10-12-17 8 2 12 9 12 17zM32 22c9-3 13-10 12-17-8 2-12 9-12 17zM32 44c-10-2-16-9-15-17 9 1 15 9 15 17zM32 44c10-2 16-9 15-17-9 1-15 9-15 17zM32 68c-10-2-16-9-15-17 9 1 15 9 15 17zM32 68c10-2 16-9 15-17-9 1-15 9-15 17zM32 92c-9-2-14-8-13-15 8 1 13 8 13 15zM32 92c9-2 14-8 13-15-8 1-13 8-13 15z" fill="#fff"/></svg>
     <span>N</span></div>
   <p class="small" style="margin-top:22px" data-r>Junto a nuestras familias</p>
+  <div class="photo" data-r>
+    <div class="fr"><svg viewBox="0 0 230 290" aria-hidden="true"><g fill="#C9D8C8"><circle cx="92" cy="120" r="26"/><path d="M40 250c0-48 22-80 52-80s52 32 52 80z"/></g><g fill="#E0B8AD"><circle cx="150" cy="112" r="26"/><path d="M98 250c0-48 22-80 52-80s52 32 52 80z"/></g><path d="M115 70c-4-8-16-5-14 4 2 7 14 14 14 14s12-7 14-14c2-9-10-12-14-4z" fill="#C97B6C" opacity=".7"/><text x="115" y="272" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" letter-spacing="2" fill="#6F6F6F">FOTO DE LOS NOVIOS</text></svg>
+      <img src="foto-novios.jpg" alt="Julio y Natali" onerror="this.remove()"></div>
+    <svg class="pfl a" viewBox="-30 -30 60 60" aria-hidden="true"><use href="#pf"/></svg><svg class="pfl b" viewBox="-30 -30 60 60" aria-hidden="true"><use href="#pf" transform="rotate(25)"/></svg><svg class="pfl c" viewBox="-30 -30 60 60" aria-hidden="true"><use href="#pf" transform="rotate(40)"/></svg><svg class="pfl d" viewBox="-30 -30 60 60" aria-hidden="true"><use href="#pf" transform="rotate(10)"/></svg>
+  </div>
 </section>
 
 <section>
@@ -138,7 +144,7 @@ section{position:relative;z-index:2;padding:22px 0}
 <g opacity=".9"><use href="#br" transform="translate(-10 232) rotate(-62) scale(1.1)"/><use href="#br" transform="translate(40 236) rotate(-35) scale(1)" opacity=".8"/></g>
 <g><use href="#br" transform="translate(250 236) rotate(-95) scale(1.15)"/><use href="#br" transform="translate(320 238) rotate(-60) scale(1.2)"/><use href="#br" transform="translate(340 238) rotate(-120) scale(1.2)"/><use href="#br" transform="translate(300 238) rotate(-80) scale(.9)" opacity=".7"/></g>
 <g opacity=".9"><use href="#br" transform="translate(650 232) rotate(-118) scale(1.1)"/><use href="#br" transform="translate(600 236) rotate(-145) scale(1)" opacity=".8"/></g>
-<use href="#bl" transform="translate(318 186) scale(.75)"/><use href="#bl" transform="translate(70 206) scale(.45)"/><use href="#bl" transform="translate(575 208) scale(.5)"/>
+<use href="#pf" transform="translate(318 182) scale(1.05) rotate(10)"/><use href="#pf" transform="translate(255 200) scale(.7) rotate(40)"/><use href="#pf" transform="translate(386 198) scale(.75) rotate(-20)"/><use href="#pf" transform="translate(70 196) scale(.8) rotate(20)"/><use href="#pf" transform="translate(130 218) scale(.5)"/><use href="#pf" transform="translate(575 196) scale(.85) rotate(-15)"/><use href="#pf" transform="translate(515 216) scale(.5) rotate(30)"/><use href="#pf" transform="translate(195 208) scale(.6) rotate(20)"/><use href="#pf" transform="translate(440 210) scale(.6) rotate(-30)"/><use href="#pf" transform="translate(18 168) scale(.65) rotate(50)"/><use href="#pf" transform="translate(622 170) scale(.65) rotate(-40)"/><use href="#pf" transform="translate(290 214) scale(.45)"/><use href="#pf" transform="translate(350 216) scale(.45) rotate(30)"/><use href="#pf" transform="translate(105 190) scale(.4) rotate(15)"/><use href="#pf" transform="translate(545 188) scale(.4) rotate(-15)"/><g fill="#D4A59A"><circle cx="290" cy="160" r="4"/><circle cx="350" cy="158" r="3.5"/><circle cx="30" cy="205" r="3"/><circle cx="610" cy="212" r="3"/></g>
 </svg></div>
 </main>
 
