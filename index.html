@@ -13,8 +13,21 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 *{box-sizing:border-box;margin:0}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{background:var(--page);font-family:'Cormorant Garamond',Georgia,serif;color:var(--ink);font-size:20px;line-height:1.5}
-#loader{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:99;transition:opacity .6s}
-#loader svg{width:64px;animation:beat 1s infinite}#loader.off{opacity:0;pointer-events:none}
+#loader{position:fixed;inset:0;z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;cursor:pointer;touch-action:none;overscroll-behavior:contain;background:radial-gradient(ellipse 70% 40% at 50% 0,rgba(150,176,150,.3),transparent 70%),#FBFAF7;transition:opacity .7s}
+.env{position:relative;width:280px;height:186px;margin-top:90px;perspective:900px;animation:fl 3.2s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.env>*{position:absolute}
+.env .back{inset:0;background:#E3C7BB;border-radius:6px;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.env .ltr{left:14px;right:14px;top:8px;height:166px;z-index:2;background:#fff;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.14);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Great Vibes',cursive;color:#46654B;font-size:2rem;line-height:1.15;transition:transform 1s .7s cubic-bezier(.4,0,.2,1)}
+.ltr small{font-family:'Cormorant Garamond',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:#8a8a8a}.ltr i{font-style:normal;color:#E4701F;font-size:1.5rem}
+.env .pocket{inset:0;z-index:3;background:#F3DFD5;clip-path:polygon(0 100%,0 14%,50% 60%,100% 14%,100% 100%);border-radius:0 0 6px 6px}
+.env .flap{left:0;right:0;top:0;height:112px;z-index:4;background:#EBD2C6;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s ease,z-index 0s .4s}
+.env .seal{left:50%;top:106px;width:46px;height:46px;margin:-23px 0 0 -23px;z-index:5;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F29A4A,#E4701F 55%,#B8501A);box-shadow:0 3px 8px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Great Vibes',cursive;font-size:1.2rem;transition:opacity .3s,transform .3s}
+.tap{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;text-transform:uppercase;font-size:.85rem;color:#6f6f6f;animation:tp 1.8s ease-in-out infinite;transition:opacity .3s}@keyframes tp{50%{opacity:.35}}
+#loader.open .flap{transform:rotateX(180deg);z-index:1}#loader.open .seal{opacity:0;transform:scale(.3)}#loader.open .ltr{transform:translateY(-100px)}#loader.open .tap{opacity:0}
+#loader.off{opacity:0;pointer-events:none}
+.snd{display:none;position:fixed;z-index:50;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:48px;height:48px;align-items:center;justify-content:center;border-radius:50%;border:1px solid #E1CFA4;background:rgba(255,255,255,.92);box-shadow:0 6px 18px rgba(0,0,0,.2);cursor:pointer;padding:0;transition:transform .3s cubic-bezier(.68,-.55,.265,1.55)}.snd:hover{transform:scale(1.1)}.snd svg{width:24px;height:24px;fill:none;stroke:#46654B;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.snd .x{display:none}.snd.m .x{display:block;stroke:#C4561A}.snd.m .w{display:none}.snd:not(.m) .w{animation:tp 1.6s ease-in-out infinite}
+.cdl{margin-top:22px;font-style:italic;font-size:1.1rem;color:var(--soft)}.cd{position:relative;z-index:2;display:flex;justify-content:center;gap:12px;margin-top:10px}.cd div{width:76px;padding:10px 0 8px;background:rgba(255,255,255,.75);border:1px solid #E1CFA4;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.06)}.cd b{display:block;font-family:'Playfair Display',serif;font-weight:400;font-size:1.9rem;line-height:1.1;color:#C4561A;font-variant-numeric:tabular-nums}.cd small{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}.cd .cdn{width:auto;border:0;background:none;box-shadow:none;font-family:'Great Vibes',cursive;font-size:2.2rem;color:var(--t)}
 @keyframes beat{0%,100%{transform:scale(1)}30%{transform:scale(1.22)}60%{transform:scale(1.05)}}
 @keyframes sway{0%,100%{transform:rotate(-1.4deg)}50%{transform:rotate(1.6deg)}}
 .card{position:relative;max-width:640px;margin:0 auto;overflow:hidden;text-align:center;padding:150px 36px 230px;box-shadow:0 10px 60px rgba(0,0,0,.18);
@@ -55,19 +68,19 @@ section{position:relative;z-index:2;padding:22px 0}
 .bk{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px dashed rgba(201,123,108,.45)}.bk small{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#8a8a8a;line-height:1.2}.bk span{font-weight:600;word-break:break-all}.cp{all:unset;cursor:pointer;flex:none;padding:3px 12px;border-radius:20px;border:1px solid var(--t);color:var(--td);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}.cp.ok{background:var(--t);color:#fff}.cpa{border:0;cursor:pointer;font-family:inherit}.chips{display:flex;gap:8px;margin:10px 0}.chip{all:unset;cursor:pointer;flex:1;text-align:center;padding:8px 6px;border:1px solid var(--t);border-radius:30px;font-weight:600;font-size:.95rem;color:var(--td)}.chip.on{background:var(--t);color:#fff}.inp{width:100%;margin-top:8px;padding:9px 16px;border:1px solid #D4A59A;border-radius:30px;font:inherit;background:#fff;color:var(--ink)}.btn.wa{display:block;text-align:center;margin-top:8px}.script{font-family:'Great Vibes',cursive;color:var(--t);font-size:3rem;line-height:1.2;margin-top:44px;position:relative;z-index:2}
 .hearts{position:relative;z-index:2}.hearts span{display:inline-block;margin:6px 3px;animation:beat 1.2s infinite}
 .hearts span:nth-child(2){animation-delay:.15s}.hearts span:nth-child(3){animation-delay:.3s}.hearts span:nth-child(4){animation-delay:.45s}.hearts span:nth-child(5){animation-delay:.6s}
-@media(max-width:640px){.photo{width:190px;height:240px}body{background:#FBFAF7}.card{box-shadow:none;padding:110px 22px 190px}.l1,.l2{width:210px}.band{margin:30px -22px 0}
+@media(max-width:640px){.cd{gap:8px}.cd div{width:64px}.cd b{font-size:1.6rem}.photo{width:190px;height:240px}body{background:#FBFAF7}.card{box-shadow:none;padding:110px 22px 190px}.l1,.l2{width:210px}.band{margin:30px -22px 0}
 .mono{font-size:5.2rem}.mono svg{width:46px;height:80px}.names{font-size:3.2rem}.names svg{width:42px}.h{font-size:1.5rem}
 .mid b{font-size:4.4rem}.mid svg{width:120px}.side{font-size:1.05rem}.date{gap:10px}.ic{width:84px}.ic span{width:68px;height:68px}.icons{gap:14px}.script{font-size:2.4rem}}
 </style>
 </head>
 <body>
-<div id="loader"><svg viewBox="0 0 24 24"><path fill="#C97B6C" d="M12 21s-8-5.4-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.6-8 11-8 11z"/></svg></div>
+<div id="loader" role="button" tabindex="0" aria-label="Abrir invitación"><div class="env"><div class="back"></div><div class="ltr"><small>Junto a nuestras familias</small><span>Julio</span><i>&amp;</i><span>Natali</span></div><div class="pocket"></div><div class="flap"></div><div class="seal">J&amp;N</div></div><p class="tap">Toca para abrir</p></div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A3C0A5"/><stop offset="1" stop-color="#6A8F70"/></linearGradient>
 <linearGradient id="gB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5E8562"/><stop offset="1" stop-color="#30503A"/></linearGradient>
 <linearGradient id="gC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D4E2D3"/><stop offset="1" stop-color="#A9C2AB"/></linearGradient>
-<radialGradient id="fl"><stop offset="0" stop-color="#B8695A"/><stop offset=".5" stop-color="#C97B6C"/><stop offset="1" stop-color="#E8D5D0" stop-opacity=".85"/></radialGradient>
+<linearGradient id="fl" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#F8C25A"/><stop offset=".45" stop-color="#F58A24"/><stop offset="1" stop-color="#E4601A"/></linearGradient>
 <g id="lf"><path d="M0 0C12-17 42-19 66 0 42 19 12 17 0 0z" stroke="rgba(40,70,45,.25)" stroke-width=".8"/><path d="M3 0H58" stroke="rgba(255,255,255,.5)" stroke-width="1" fill="none"/></g>
 <g id="br">
 <path d="M0 0C70-14 130 12 205-8" fill="none" stroke="#4F6F55" stroke-width="2.4"/>
@@ -81,8 +94,9 @@ section{position:relative;z-index:2;padding:22px 0}
 <use href="#lf" fill="url(#gA)" transform="translate(152 -2) rotate(30) scale(.75)"/>
 <use href="#lf" fill="url(#gA)" transform="translate(203 -8) rotate(-5) scale(.7)"/>
 </g>
-<g id="bl"><circle r="30" fill="url(#fl)" opacity=".45"/><circle r="21" fill="url(#fl)" opacity=".8"/><circle r="12" fill="#C97B6C"/><circle r="5" fill="#B8695A"/></g>
-<g id="pf"><g fill="url(#fl)"><ellipse cy="-17" rx="9" ry="17" opacity=".85"/><ellipse cy="-17" rx="9" ry="17" opacity=".85" transform="rotate(60)"/><ellipse cy="-17" rx="9" ry="17" opacity=".85" transform="rotate(120)"/><ellipse cy="-17" rx="9" ry="17" opacity=".85" transform="rotate(180)"/><ellipse cy="-17" rx="9" ry="17" opacity=".85" transform="rotate(240)"/><ellipse cy="-17" rx="9" ry="17" opacity=".85" transform="rotate(300)"/></g><circle r="10" fill="#B8695A" opacity=".8"/><circle r="5" fill="#F5E6E0"/><circle r="2" fill="#E8C9A8"/></g>
+<g id="bl"><use href="#pf" transform="rotate(30)"/></g>
+<g id="lp"><path d="M0 0C-10-8-12-24 0-42 12-24 10-8 0 0z" fill="url(#fl)" stroke="rgba(150,60,10,.3)" stroke-width=".6"/><path d="M0-4V-34" stroke="rgba(150,60,10,.35)" stroke-width=".8" fill="none"/><g fill="#9C3E14" opacity=".6"><circle cx="-3" cy="-14" r="1"/><circle cx="3" cy="-18" r="1"/><circle cx="-2.5" cy="-23" r="1"/><circle cx="2" cy="-27" r=".8"/></g></g>
+<g id="pf"><g transform="scale(.85)"><use href="#lp"/><use href="#lp" transform="rotate(60)"/><use href="#lp" transform="rotate(120)"/><use href="#lp" transform="rotate(180)"/><use href="#lp" transform="rotate(240)"/><use href="#lp" transform="rotate(300)"/><path d="M0 0L5.2-19.3M0 0L19.3-5.2M0 0L14.1 14.1M0 0L-5.2 19.3M0 0L-19.3 5.2M0 0L-14.1-14.1" stroke="#8A4A1A" stroke-width=".9" stroke-linecap="round"/><g fill="#6B2E12"><circle cx="5.2" cy="-19.3" r="2"/><circle cx="19.3" cy="-5.2" r="2"/><circle cx="14.1" cy="14.1" r="2"/><circle cx="-5.2" cy="19.3" r="2"/><circle cx="-19.3" cy="5.2" r="2"/><circle cx="-14.1" cy="-14.1" r="2"/></g><circle r="3" fill="#F3D36B"/></g></g>
 <g id="cl">
 <use href="#br" transform="translate(-6 36) rotate(22) scale(1.35)"/>
 <use href="#br" transform="translate(-6 96) rotate(48) scale(1.25)"/>
@@ -90,7 +104,7 @@ section{position:relative;z-index:2;padding:22px 0}
 <use href="#br" transform="translate(-6 150) rotate(30) scale(.9)" opacity=".8"/>
 <use href="#br" transform="translate(40 -4) rotate(100) scale(1.05)" opacity=".85"/>
 <use href="#bl" transform="translate(88 82) scale(.8)"/>
-<use href="#bl" transform="translate(40 150) scale(.45)"/><use href="#pf" transform="translate(112 52) scale(1.15) rotate(15)"/><use href="#pf" transform="translate(48 108) scale(.95) rotate(40)"/><use href="#pf" transform="translate(158 136) scale(.7) rotate(-10)"/><use href="#pf" transform="translate(205 72) scale(.6) rotate(25)"/><use href="#pf" transform="translate(22 44) scale(.6) rotate(5)"/><use href="#pf" transform="translate(80 18) scale(.55) rotate(30)"/><use href="#pf" transform="translate(190 40) scale(.5) rotate(-20)"/><use href="#pf" transform="translate(236 104) scale(.45) rotate(50)"/><use href="#pf" transform="translate(100 170) scale(.5) rotate(15)"/><use href="#pf" transform="translate(14 182) scale(.45)"/><use href="#pf" transform="translate(140 88) scale(.4) rotate(70)"/><g fill="#D4A59A"><circle cx="150" cy="20" r="4"/><circle cx="84" cy="128" r="3.5"/><circle cx="176" cy="102" r="3"/><circle cx="20" cy="150" r="3"/></g>
+<use href="#bl" transform="translate(40 150) scale(.45)"/><use href="#pf" transform="translate(112 52) scale(1.15) rotate(15)"/><use href="#pf" transform="translate(48 108) scale(.95) rotate(40)"/><use href="#pf" transform="translate(158 136) scale(.7) rotate(-10)"/><use href="#pf" transform="translate(205 72) scale(.6) rotate(25)"/><use href="#pf" transform="translate(22 44) scale(.6) rotate(5)"/><use href="#pf" transform="translate(80 18) scale(.55) rotate(30)"/><use href="#pf" transform="translate(190 40) scale(.5) rotate(-20)"/><use href="#pf" transform="translate(236 104) scale(.45) rotate(50)"/><use href="#pf" transform="translate(100 170) scale(.5) rotate(15)"/><use href="#pf" transform="translate(14 182) scale(.45)"/><use href="#pf" transform="translate(140 88) scale(.4) rotate(70)"/><g fill="#F2A65A"><circle cx="150" cy="20" r="4"/><circle cx="84" cy="128" r="3.5"/><circle cx="176" cy="102" r="3"/><circle cx="20" cy="150" r="3"/></g>
 </g></defs></svg>
 
 <main class="card">
@@ -126,6 +140,8 @@ section{position:relative;z-index:2;padding:22px 0}
     <div class="side">2027</div>
   </div>
   <p class="time" data-r>12:00 PM</p>
+  <p class="cdl" data-r>Falta poco para nuestro gran día</p>
+  <div class="cd" id="cd" data-r><div><b id="cd-d">0</b><small>Días</small></div><div><b id="cd-h">00</b><small>Horas</small></div><div><b id="cd-m">00</b><small>Min</small></div><div><b id="cd-s">00</b><small>Seg</small></div></div>
   <p class="addr" data-r>Parcela 12 Santa Sara,<br>Porvenir, Florida - Chile</p>
   
 </section>
@@ -148,14 +164,25 @@ section{position:relative;z-index:2;padding:22px 0}
 <g opacity=".9"><use href="#br" transform="translate(-10 232) rotate(-62) scale(1.1)"/><use href="#br" transform="translate(40 236) rotate(-35) scale(1)" opacity=".8"/></g>
 <g><use href="#br" transform="translate(250 236) rotate(-95) scale(1.15)"/><use href="#br" transform="translate(320 238) rotate(-60) scale(1.2)"/><use href="#br" transform="translate(340 238) rotate(-120) scale(1.2)"/><use href="#br" transform="translate(300 238) rotate(-80) scale(.9)" opacity=".7"/></g>
 <g opacity=".9"><use href="#br" transform="translate(650 232) rotate(-118) scale(1.1)"/><use href="#br" transform="translate(600 236) rotate(-145) scale(1)" opacity=".8"/></g>
-<use href="#pf" transform="translate(318 182) scale(1.05) rotate(10)"/><use href="#pf" transform="translate(255 200) scale(.7) rotate(40)"/><use href="#pf" transform="translate(386 198) scale(.75) rotate(-20)"/><use href="#pf" transform="translate(70 196) scale(.8) rotate(20)"/><use href="#pf" transform="translate(130 218) scale(.5)"/><use href="#pf" transform="translate(575 196) scale(.85) rotate(-15)"/><use href="#pf" transform="translate(515 216) scale(.5) rotate(30)"/><use href="#pf" transform="translate(195 208) scale(.6) rotate(20)"/><use href="#pf" transform="translate(440 210) scale(.6) rotate(-30)"/><use href="#pf" transform="translate(18 168) scale(.65) rotate(50)"/><use href="#pf" transform="translate(622 170) scale(.65) rotate(-40)"/><use href="#pf" transform="translate(290 214) scale(.45)"/><use href="#pf" transform="translate(350 216) scale(.45) rotate(30)"/><use href="#pf" transform="translate(105 190) scale(.4) rotate(15)"/><use href="#pf" transform="translate(545 188) scale(.4) rotate(-15)"/><g fill="#D4A59A"><circle cx="290" cy="160" r="4"/><circle cx="350" cy="158" r="3.5"/><circle cx="30" cy="205" r="3"/><circle cx="610" cy="212" r="3"/></g>
+<use href="#pf" transform="translate(318 182) scale(1.05) rotate(10)"/><use href="#pf" transform="translate(255 200) scale(.7) rotate(40)"/><use href="#pf" transform="translate(386 198) scale(.75) rotate(-20)"/><use href="#pf" transform="translate(70 196) scale(.8) rotate(20)"/><use href="#pf" transform="translate(130 218) scale(.5)"/><use href="#pf" transform="translate(575 196) scale(.85) rotate(-15)"/><use href="#pf" transform="translate(515 216) scale(.5) rotate(30)"/><use href="#pf" transform="translate(195 208) scale(.6) rotate(20)"/><use href="#pf" transform="translate(440 210) scale(.6) rotate(-30)"/><use href="#pf" transform="translate(18 168) scale(.65) rotate(50)"/><use href="#pf" transform="translate(622 170) scale(.65) rotate(-40)"/><use href="#pf" transform="translate(290 214) scale(.45)"/><use href="#pf" transform="translate(350 216) scale(.45) rotate(30)"/><use href="#pf" transform="translate(105 190) scale(.4) rotate(15)"/><use href="#pf" transform="translate(545 188) scale(.4) rotate(-15)"/><g fill="#F2A65A"><circle cx="290" cy="160" r="4"/><circle cx="350" cy="158" r="3.5"/><circle cx="30" cy="205" r="3"/><circle cx="610" cy="212" r="3"/></g>
 </svg></div>
 </main>
 
+<audio id="bgm" src="musica.mp3" loop preload="auto"></audio>
+<button class="snd" id="snd" aria-label="Silenciar música" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="w" d="M16.500 8.500a5 5 0 0 1 0 7M19 6a8.500 8.500 0 0 1 0 12"/><path class="x" d="M3 3l18 18"/></svg></button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script>
-setTimeout(function(){document.getElementById('loader').classList.add('off')},1500);
+var L=document.getElementById('loader'),opened=false;
+var A=document.getElementById('bgm'),SB=document.getElementById('snd');
+A.volume=.5;A.addEventListener('error',function(){SB.style.display='none'});
+SB.addEventListener('click',function(){A.muted=!A.muted;SB.classList.toggle('m',A.muted);SB.setAttribute('aria-pressed',A.muted);SB.setAttribute('aria-label',A.muted?'Activar música':'Silenciar música')});
+document.addEventListener('visibilitychange',function(){if(!opened||A.error)return;if(document.hidden){A.pause()}else{A.play().catch(function(){})}});
+function openInv(){if(opened)return;opened=true;L.classList.add('open');var p=A.play();if(p&&p.then)p.then(function(){SB.style.display='flex'},function(){});setTimeout(function(){L.classList.add('off');if(window.intro)window.intro()},1900);setTimeout(function(){L.style.display='none'},2700)}
+L.addEventListener('click',openInv);L.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openInv()}});
+var T=Date.UTC(2027,1,13,15,0,0),CD=document.getElementById('cd');
+function tick(){var d=T-Date.now();if(d<=0){CD.innerHTML='<span class="cdn">'+(d>-86400000?'¡Hoy es el gran día!':'¡Gracias por acompañarnos!')+' 💕</span>';return}var s=Math.floor(d/1000),v={d:Math.floor(s/86400),h:Math.floor(s%86400/3600),m:Math.floor(s%3600/60),s:s%60};Object.keys(v).forEach(function(k){document.getElementById('cd-'+k).textContent=k==='d'?v[k]:String(v[k]).padStart(2,'0')})}
+tick();setInterval(tick,1000);
 var MAPS='https://maps.app.goo.gl/cV2fB6dvqkYjGE5C8?g_st=aw';
 var C={
 map:'<h3>Cómo llegar</h3><p>Parcela 12 Santa Sara<br>Porvenir, Florida - Chile</p><a class="mini" target="_blank" rel="noopener" href="'+MAPS+'" aria-label="Abrir en Google Maps"><svg viewBox="0 0 300 170"><rect width="300" height="170" fill="#EEE9DD"/><path d="M0 20Q60 0 110 30T210 20 300 40V0H0z" fill="#D5E4CC"/><path d="M190 170Q210 120 260 110T300 90V170z" fill="#D5E4CC"/><path d="M0 120Q40 100 70 130T130 150 170 170H0z" fill="#DCE8D2"/><path d="M-10 100C60 80 120 120 190 90S270 40 310 60" fill="none" stroke="#BCD6E4" stroke-width="9" stroke-linecap="round"/><g fill="none" stroke="#fff" stroke-linecap="round"><path d="M-10 60L110 74 300 74" stroke-width="6"/><path d="M150 -10V74L120 180" stroke-width="5"/><path d="M40 180L90 74" stroke-width="3"/><path d="M210 74L250 180" stroke-width="3"/></g><g fill="none" stroke="#E3DACB" stroke-width=".8"><path d="M-10 60L110 74 300 74"/><path d="M150 -10V74L120 180"/></g><circle class="pulse" cx="150" cy="74" r="14" fill="#C97B6C"/><path d="M150 96C142 84 136 78 136 70a14 14 0 0 1 28 0c0 8-6 14-14 26z" fill="#C97B6C" stroke="#fff" stroke-width="2"/><circle cx="150" cy="70" r="5" fill="#fff"/></svg><i>Parcela 12 Santa Sara</i></a><a class="btn" target="_blank" rel="noopener" href="'+MAPS+'">Ver Ubicación en Mapa</a>',
@@ -182,7 +209,7 @@ document.querySelectorAll('.ic').forEach(function(b){b.addEventListener('click',
 })});
 if(window.gsap&&window.ScrollTrigger){
  gsap.registerPlugin(ScrollTrigger);
- gsap.from('.mono',{opacity:0,scale:.85,duration:1.2,delay:1.6,ease:'power2.out'});
+ window.intro=function(){gsap.from('.mono',{opacity:0,scale:.85,duration:1.2,ease:'power2.out'})};
  gsap.utils.toArray('[data-r]').forEach(function(el,i){
   if(i===0)return;
   var v={scrollTrigger:{trigger:el,start:'top 90%'},opacity:0,duration:1,ease:'power2.out'};
